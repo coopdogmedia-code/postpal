@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy — PostPal</title>
+    <meta name="description" content="The PostPal Academy curriculum. 5 modules, 25+ lessons, daily practice drills.">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-logo">PostPal</a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="academy.html" class="active">Academy</a>
+                <a href="join.html">Join</a>
+                <a href="login.html" class="nav-login">Login</a>
+            </div>
+            
+            <button class="nav-hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html">Home</a>
+            <a href="academy.html">Academy</a>
+            <a href="join.html">Join</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <main class="section">
+        <div class="container">
+            <div class="section-header">
+                <h1>The Academy</h1>
+                <p>Your 30-day path to camera confidence.</p>
+            </div>
+
+            <!-- Locked State (shown when not a member) -->
+            <div class="curriculum-locked">
+                <h2>🔒 Curriculum Preview</h2>
+                <p>Join PostPal Academy to unlock all lessons, track your progress, and access daily practice drills.</p>
+                <a href="join.html" class="btn btn-primary">Join to Unlock</a>
+            </div>
+
+            <!-- Progress Widget -->
+            <div class="progress-widget">
+                <div class="progress-stat">
+                    <div class="progress-number" id="streak-count">0</div>
+                    <div class="progress-label">Day Streak</div>
+                </div>
+                <div class="progress-stat">
+                    <div class="progress-number" id="completed-count">0</div>
+                    <div class="progress-label">Lessons Completed</div>
+                </div>
+            </div>
+
+            <!-- Module 1 -->
+            <div class="curriculum-module">
+                <div class="module-header">
+                    <div class="module-info">
+                        <div class="module-badge">1</div>
+                        <div class="module-title">
+                            <h3>Breaking the Ice</h3>
+                            <span>6 lessons • Get comfortable seeing yourself</span>
+                        </div>
+                    </div>
+                    <span class="module-toggle">▼</span>
+                </div>
+                <div class="module-lessons">
+                    <div class="lesson-item locked" data-lesson="1-1" data-title="Why You Hate Watching Yourself">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Why You Hate Watching Yourself</span>
+                        <span class="lesson-duration">6 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="1-2" data-title="The Mirror Exercise">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The Mirror Exercise</span>
+                        <span class="lesson-duration">8 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="1-3" data-title="Recording Without Watching">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Recording Without Watching</span>
+                        <span class="lesson-duration">5 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="1-4" data-title="The 10-Second Challenge">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The 10-Second Challenge</span>
+                        <span class="lesson-duration">7 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="1-5" data-title="Watching Your First Take">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Watching Your First Take</span>
+                        <span class="lesson-duration">6 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="1-6" data-title="The Comfort Baseline">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The Comfort Baseline</span>
+                        <span class="lesson-duration">5 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="curriculum-module">
+                <div class="module-header">
+                    <div class="module-info">
+                        <div class="module-badge">2</div>
+                        <div class="module-title">
+                            <h3>Finding Your Voice</h3>
+                            <span>5 lessons • Discover your natural style</span>
+                        </div>
+                    </div>
+                    <span class="module-toggle">▼</span>
+                </div>
+                <div class="module-lessons">
+                    <div class="lesson-item locked" data-lesson="2-1" data-title="Your Speaking Patterns">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Your Speaking Patterns</span>
+                        <span class="lesson-duration">8 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="2-2" data-title="Dropping the Performer Voice">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Dropping the Performer Voice</span>
+                        <span class="lesson-duration">7 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="2-3" data-title="Talking to One Person">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Talking to One Person</span>
+                        <span class="lesson-duration">6 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="2-4" data-title="Energy Calibration">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Energy Calibration</span>
+                        <span class="lesson-duration">9 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="2-5" data-title="Your Voice Signature">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Your Voice Signature</span>
+                        <span class="lesson-duration">7 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="curriculum-module">
+                <div class="module-header">
+                    <div class="module-info">
+                        <div class="module-badge">3</div>
+                        <div class="module-title">
+                            <h3>The Hook Framework</h3>
+                            <span>5 lessons • Open strong every time</span>
+                        </div>
+                    </div>
+                    <span class="module-toggle">▼</span>
+                </div>
+                <div class="module-lessons">
+                    <div class="lesson-item locked" data-lesson="3-1" data-title="Why First Seconds Matter">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Why First Seconds Matter</span>
+                        <span class="lesson-duration">6 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="3-2" data-title="The 5 Hook Types">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The 5 Hook Types</span>
+                        <span class="lesson-duration">10 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="3-3" data-title="Writing Hooks That Sound Like You">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Writing Hooks That Sound Like You</span>
+                        <span class="lesson-duration">8 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="3-4" data-title="Delivering Without Reading">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Delivering Without Reading</span>
+                        <span class="lesson-duration">7 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="3-5" data-title="The Hook Drill">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The Hook Drill</span>
+                        <span class="lesson-duration">5 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="curriculum-module">
+                <div class="module-header">
+                    <div class="module-info">
+                        <div class="module-badge">4</div>
+                        <div class="module-title">
+                            <h3>Delivery & Energy</h3>
+                            <span>5 lessons • Master presence on camera</span>
+                        </div>
+                    </div>
+                    <span class="module-toggle">▼</span>
+                </div>
+                <div class="module-lessons">
+                    <div class="lesson-item locked" data-lesson="4-1" data-title="Pacing & Rhythm">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Pacing & Rhythm</span>
+                        <span class="lesson-duration">8 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="4-2" data-title="The Power of Pauses">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The Power of Pauses</span>
+                        <span class="lesson-duration">6 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="4-3" data-title="Eye Contact with the Lens">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Eye Contact with the Lens</span>
+                        <span class="lesson-duration">7 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="4-4" data-title="Body Language Basics">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Body Language Basics</span>
+                        <span class="lesson-duration">9 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="4-5" data-title="Bringing Energy Without Being Fake">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Bringing Energy Without Being Fake</span>
+                        <span class="lesson-duration">8 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="curriculum-module">
+                <div class="module-header">
+                    <div class="module-info">
+                        <div class="module-badge">5</div>
+                        <div class="module-title">
+                            <h3>The Daily System</h3>
+                            <span>4 lessons • Build your sustainable routine</span>
+                        </div>
+                    </div>
+                    <span class="module-toggle">▼</span>
+                </div>
+                <div class="module-lessons">
+                    <div class="lesson-item locked" data-lesson="5-1" data-title="The 15-Minute Content Block">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">The 15-Minute Content Block</span>
+                        <span class="lesson-duration">7 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="5-2" data-title="Batching vs. Daily">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Batching vs. Daily</span>
+                        <span class="lesson-duration">6 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="5-3" data-title="Handling Off Days">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Handling Off Days</span>
+                        <span class="lesson-duration">5 min</span>
+                    </div>
+                    <div class="lesson-item locked" data-lesson="5-4" data-title="Your Forever Framework">
+                        <span class="lesson-status">○</span>
+                        <span class="lesson-title">Your Forever Framework</span>
+                        <span class="lesson-duration">8 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Practice -->
+            <div class="daily-practice">
+                <h3>📝 Daily Practice Drills</h3>
+                <p class="text-muted mb-lg">One prompt per day. Record it, even if you don't post it.</p>
+                
+                <div class="drill-item">
+                    <span class="drill-day">D1</span>
+                    <span class="drill-prompt">Record yourself saying "Hey, it's [your name]" three different ways. Which feels most natural?</span>
+                </div>
+                <div class="drill-item">
+                    <span class="drill-day">D2</span>
+                    <span class="drill-prompt">Talk about what you had for breakfast for 30 seconds without stopping.</span>
+                </div>
+                <div class="drill-item">
+                    <span class="drill-day">D3</span>
+                    <span class="drill-prompt">Share one thing you're good at and why. No disclaimers allowed.</span>
+                </div>
+                <div class="drill-item">
+                    <span class="drill-day">D4</span>
+                    <span class="drill-prompt">Record a take, watch it back, then record the same thing again. Notice the difference.</span>
+                </div>
+                <div class="drill-item">
+                    <span class="drill-day">D5</span>
+                    <span class="drill-prompt">Give advice to someone just starting in your field. Be direct.</span>
+                </div>
+                <div class="drill-item">
+                    <span class="drill-day">D6</span>
+                    <span class="drill-prompt">Tell a quick story from your week. Beginning, middle, end. Under 60 seconds.</span>
+                </div>
+                <div class="drill-item">
+                    <span class="drill-day">D7</span>
+                    <span class="drill-prompt">Record your best hook from this week. Then record it with 20% more energy.</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lesson Modal -->
+    <div class="modal-overlay" id="lesson-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-lesson-title">Lesson Title</h2>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="video-placeholder">
+                    <p>🎬 Video will go here</p>
+                </div>
+                
+                <div class="lesson-summary">
+                    <h4>Key Takeaways</h4>
+                    <ul>
+                        <li>The first point you'll learn in this lesson</li>
+                        <li>Another important concept covered</li>
+                        <li>A practical technique you can apply immediately</li>
+                    </ul>
+                </div>
+                
+                <div class="lesson-drill">
+                    <h4>🎯 Do This Rep</h4>
+                    <p>Record a 15-second video practicing the technique from this lesson. Don't worry about posting — just do the rep.</p>
+                </div>
+                
+                <div class="lesson-notes">
+                    <h4>Your Notes</h4>
+                    <textarea id="lesson-notes" placeholder="Write your notes here... They'll be saved automatically."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                <button class="btn btn-primary" id="mark-complete-btn">Mark Complete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-logo">PostPal Academy</div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+            <div class="footer-copy">© 2025 PostPal. All rights reserved.</div>
+            
+            <!-- Member Mode Toggle (for testing) -->
+            <div class="member-toggle">
+                <span>Member mode:</span>
+                <div class="toggle-switch"></div>
+                <span>Off</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
