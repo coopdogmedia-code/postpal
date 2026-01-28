@@ -1,65 +1,221 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 export default function Home() {
+  const [url, setUrl] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+  const [hooks, setHooks] = useState<string[]>([]);
+  const [summary, setSummary] = useState("");
+
+  async function onGenerate() {
+    if (!url.trim()) return;
+
+    setStatus("loading");
+    setHooks([]);
+    setSummary("");
+
+    // TEMP: fake results (we'll replace with real AI next)
+    await new Promise((r) => setTimeout(r, 600));
+
+    setSummary(
+      "Summary (placeholder): This link is about a topic that creators can quickly repackage into short-form content."
+    );
+    setHooks([
+      "Hook 1: I didn’t realize THIS is why everyone’s talking about it…",
+      "Hook 2: The real reason this matters (and nobody explains it clearly)",
+      "Hook 3: If you’re still doing it the old way, you’re already behind",
+      "Hook 4: Here’s the 10-second version so you can post today",
+      "Hook 5: I tested it so you don’t have to — here’s what happened",
+    ]);
+
+    setStatus("done");
+  }
+
+  function onClear() {
+    setUrl("");
+    setHooks([]);
+    setSummary("");
+    setStatus("idle");
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "radial-gradient(circle at top, #111 0%, #000 55%)",
+        color: "white",
+        display: "flex",
+        justifyContent: "center",
+        padding: "48px 20px",
+        fontFamily:
+          'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial',
+      }}
+    >
+      <div style={{ width: "100%", maxWidth: 880 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div
+            style={{
+              width: 42,
+              height: 42,
+              borderRadius: 12,
+              background: "linear-gradient(135deg, #00E5FF 0%, #7C4DFF 100%)",
+            }}
+          />
+          <div>
+            <h1 style={{ fontSize: 40, margin: 0, lineHeight: 1.1 }}>
+              PostPal
+            </h1>
+            <p style={{ margin: "6px 0 0", opacity: 0.7 }}>
+              Paste a link → get hooks, a summary, and a script outline.
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            marginTop: 28,
+            padding: 18,
+            borderRadius: 16,
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.08)",
+          }}
+        >
+          <label style={{ display: "block", fontSize: 14, opacity: 0.8 }}>
+            Link
+          </label>
+
+          <div
+            style={{
+              display: "flex",
+              gap: 10,
+              marginTop: 10,
+              flexWrap: "wrap",
+            }}
+          >
+            <input
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder="YouTube, TikTok, article, tweet thread, etc."
+              style={{
+                flex: "1 1 420px",
+                padding: "12px 14px",
+                fontSize: 16,
+                borderRadius: 12,
+                border: "1px solid rgba(255,255,255,0.14)",
+                background: "rgba(0,0,0,0.35)",
+                color: "white",
+                outline: "none",
+              }}
+            />
+
+            <button
+              onClick={onGenerate}
+              disabled={status === "loading" || !url.trim()}
+              style={{
+                padding: "12px 16px",
+                fontSize: 16,
+                borderRadius: 12,
+                border: "none",
+                cursor:
+                  status === "loading" || !url.trim() ? "not-allowed" : "pointer",
+                background:
+                  status === "loading" || !url.trim()
+                    ? "rgba(255,255,255,0.12)"
+                    : "linear-gradient(135deg, #00E5FF 0%, #7C4DFF 100%)",
+                color: "black",
+                fontWeight: 700,
+                minWidth: 140,
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              {status === "loading" ? "Generating…" : "Generate"}
+            </button>
+
+            <button
+              onClick={onClear}
+              style={{
+                padding: "12px 16px",
+                fontSize: 16,
+                borderRadius: 12,
+                border: "1px solid rgba(255,255,255,0.18)",
+                cursor: "pointer",
+                background: "transparent",
+                color: "white",
+                opacity: 0.9,
+              }}
             >
-              Learning
-            </a>{" "}
-            center.
+              Clear
+            </button>
+          </div>
+
+          <p style={{ margin: "12px 0 0", fontSize: 13, opacity: 0.6 }}>
+            This is a placeholder generator right now. Next step: real AI output.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {status !== "idle" && (
+          <div style={{ marginTop: 22, display: "grid", gap: 14 }}>
+            <div
+              style={{
+                padding: 18,
+                borderRadius: 16,
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <h2 style={{ margin: 0, fontSize: 18 }}>Summary</h2>
+              <p style={{ margin: "10px 0 0", opacity: 0.85, lineHeight: 1.5 }}>
+                {status === "loading" ? "Working…" : summary}
+              </p>
+            </div>
+
+            <div
+              style={{
+                padding: 18,
+                borderRadius: 16,
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <h2 style={{ margin: 0, fontSize: 18 }}>Hooks</h2>
+
+              {status === "loading" ? (
+                <p style={{ margin: "10px 0 0", opacity: 0.7 }}>Generating…</p>
+              ) : (
+                <ol style={{ margin: "10px 0 0", paddingLeft: 18 }}>
+                  {hooks.map((h, i) => (
+                    <li key={i} style={{ margin: "10px 0", opacity: 0.9 }}>
+                      {h}
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </div>
+
+            <div
+              style={{
+                padding: 18,
+                borderRadius: 16,
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <h2 style={{ margin: 0, fontSize: 18 }}>Script Outline</h2>
+              <div style={{ marginTop: 10, opacity: 0.9, lineHeight: 1.6 }}>
+                <div>1) Hook (1 line)</div>
+                <div>2) Context (2–3 lines)</div>
+                <div>3) Key point / twist (1–2 lines)</div>
+                <div>4) Quick takeaway (1 line)</div>
+                <div>5) CTA (comment / follow / save)</div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div style={{ marginTop: 26, opacity: 0.5, fontSize: 12 }}>
+          PostPal v0 — shipped. Next: real AI endpoint.
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
